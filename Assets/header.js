@@ -9,14 +9,9 @@ class Header extends HTMLElement {
         <style>
           nav {
             height: 40px;
-            display: flex;
             align-items: center;
             justify-content: center;
-            background-color:  #0a0a23;
-          }
-  
-          ul {
-            padding: 0;
+            background-color:  #009a03;
           }
           
           a {
@@ -30,14 +25,29 @@ class Header extends HTMLElement {
             padding-bottom: 5px;
             box-shadow: inset 0 -2px 0 0 #fff;
           }
+          .column {
+            float: left;
+            width: 14%;
+          }
+          
+          /* Clear floats after the columns */
+          .row:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
         </style>
         <header>
           <nav>
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="work.html">Work</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <div class="row">
+              <div class="column">Home</div>
+              <div class="column">Expenses</div>
+              <div class="column">Projections</div>
+              <div class="column">Subscriptions</div>
+              <div class="column">Assets</div>
+              <div class="column">About</div>
+              <div class="column">Help</div>
+            </div>
           </nav>
         </header>
       `;
