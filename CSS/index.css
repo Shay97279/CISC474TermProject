@@ -7,6 +7,7 @@ nav {
     background-color:  #009a03;
     z-index: 100; /*keeps it in front of other things as you scroll*/
     position: fixed;
+    width: 100%;
   }
   
   a {
@@ -61,18 +62,31 @@ body {
 
 .container {
     display: flex;
-    justify-content: flex-end; /* Align items to the right side */
-  }
+    width: 100%;
+}
 
-  .sidebarcol {
-    width: 300px; /* Adjust this width as needed */
-  }
+.content {
+    flex: 1; /* Allow content to take up remaining space */
+    padding: 20px;
+    margin-top: 40px;
+}
 
-  /* Style for each form */
-  form {
-    margin: 10px 0; /* Add spacing between forms */
-  }
+.sidebar {
+    background-color: rgb(240, 118, 118);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%; 
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+    margin-top: 40px;
+}
 
-  label, input {
-    display: block; /* Place label and input elements on separate lines */
-  }
+/* Style for each form */
+form {
+margin: 10px 0; /* Add spacing between forms */
+}
+
+label, input {
+display: block; /* Place label and input elements on separate lines */
+} 
