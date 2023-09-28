@@ -5,6 +5,8 @@ nav {
     justify-content: space-between;
     margin: 0;
     background-color:  #009a03;
+    z-index: 100; /*keeps it in front of other things as you scroll*/
+    position: fixed;
   }
   
   a {
