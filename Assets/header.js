@@ -6,7 +6,6 @@ class Header extends HTMLElement {
     connectedCallback() {
       //Could move the style stuff to a CSS file
       this.innerHTML = `
-      <header>
       <nav>
         <div class="row">
           <a class="column" href="landing.html">Home</a>
@@ -18,7 +17,6 @@ class Header extends HTMLElement {
           <a class="column" href="landing.html">Help</a>
         </div>
       </nav>
-    </header>
       `;
     }
   }
