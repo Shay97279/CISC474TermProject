@@ -1,12 +1,10 @@
-class Sidebar extends HTMLElement {
-    constructor() {
-      super();
-    }
-  
-    connectedCallback() {
-      //Could move the style stuff to a CSS file
-      this.innerHTML = `
-      <script>
+<!--This is just where I see how component html looks before turning it into a component-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../CSS/index.css" rel="stylesheet" type="text/css" />
+  <script>
     $(document).ready(function() {
       // Attach a submit event handler to the form
       var income_or_whatever;
@@ -59,9 +57,3 @@ class Sidebar extends HTMLElement {
         </form>
       </div>
   </div>
-      `;
-    }
-  }
-  
-  customElements.define('sidebar-component', Sidebar);
-  
