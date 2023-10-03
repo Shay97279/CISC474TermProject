@@ -9,8 +9,9 @@ body {
     }
 
     .avatar {
-        width: 40%;
-        border-radius: 50%; 
+        width: 25%;
+        border-radius: 100%;
+        margin-right: 80%;
     }
 
     .imgcontainer {
