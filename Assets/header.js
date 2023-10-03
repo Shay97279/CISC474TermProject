@@ -6,50 +6,17 @@ class Header extends HTMLElement {
     connectedCallback() {
       //Could move the style stuff to a CSS file
       this.innerHTML = `
-        <style>
-          nav {
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-            background-color:  #009a03;
-          }
-          
-          a {
-            font-weight: 700;
-            margin: 0 25px;
-            color: #fff;
-            text-decoration: none;
-          }
-          
-          a:hover {
-            padding-bottom: 5px;
-            box-shadow: inset 0 -2px 0 0 #fff;
-          }
-          .column {
-            float: left;
-            width: 14%;
-          }
-          
-          /* Clear floats after the columns */
-          .row:after {
-            content: "";
-            display: table;
-            clear: both;
-          }
-        </style>
-        <header>
-          <nav>
-            <div class="row">
-              <div class="column">Home</div>
-              <div class="column">Expenses</div>
-              <div class="column">Projections</div>
-              <div class="column">Subscriptions</div>
-              <div class="column">Assets</div>
-              <div class="column">About</div>
-              <div class="column">Help</div>
-            </div>
-          </nav>
-        </header>
+      <nav>
+        <div class="row">
+          <a class="column" href="landing.html">Home</a>
+          <a class="column" href="expenses.html">Expenses</a>
+          <a class="column" href="landing.html">Projections</a>
+          <a class="column" href="expenses.html">Subscriptions</a>
+          <a class="column" href="assets.html">Assets</a>
+          <a class="column" href="landing.html">About</a>
+          <a class="column" href="landing.html">Help</a>
+        </div>
+      </nav>
       `;
     }
   }
