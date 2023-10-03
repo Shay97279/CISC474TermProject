@@ -90,3 +90,7 @@ margin: 10px 0; /* Add spacing between forms */
 label, input {
 display: block; /* Place label and input elements on separate lines */
 } 
+
+.standard {
+    color:blue
+}
