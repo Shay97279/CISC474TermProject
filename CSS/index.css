@@ -1,0 +1,92 @@
+nav {
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    background-color:  #009a03;
+    z-index: 100; /*keeps it in front of other things as you scroll*/
+    position: fixed;
+    width: 100%;
+  }
+  
+  a {
+    font-weight: 700;
+    margin: 0 25px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    padding-bottom: 5px;
+    box-shadow: inset 0 -2px 0 0 #fff;
+  }
+  img {
+    height:300px;
+}
+
+body {
+    margin:0;
+    padding: 0;
+}
+
+.centered {
+    text-align: center
+}
+
+.lcolumn {
+    flex: 1; /* Grow and shrink to occupy available space */
+    text-align: left; /* Align text to the left */
+}
+
+.column {
+    flex: 1; /* Grow and shrink to occupy available space */
+    text-align: center; /* Center text */
+}
+
+.rcolumn {
+    flex: 1; /* Grow and shrink to occupy available space */
+    text-align: right; /* Align text to the right */
+}
+
+.button {
+    background-color: rgb(68, 139, 231);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    color: rgb(34, 233, 140)
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.content {
+    flex: 1; /* Allow content to take up remaining space */
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.sidebar {
+    background-color: rgb(240, 118, 118);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%; 
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+    margin-top: 40px;
+}
+
+/* Style for each form */
+form {
+margin: 10px 0; /* Add spacing between forms */
+}
+
+label, input {
+display: block; /* Place label and input elements on separate lines */
+} 
