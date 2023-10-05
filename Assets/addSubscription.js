@@ -1,5 +1,4 @@
-function addSub(event) {
-    //alert("clicked");
+function addSub() {
     //Getting values
     let subName = document.getElementById('expenseName').value;
     let subCost = document.getElementById('expenseCost').value;
@@ -9,7 +8,7 @@ function addSub(event) {
     else{
     //Outer Div
     let newSub = document.createElement('div');
-    newSub.className = "row";
+    newSub.className = "sub";
     newSub.id = "subName";
     //Inner Div
     let newSubInner = document.createElement('h1');
@@ -23,8 +22,11 @@ function addSub(event) {
     //Appending
     newSub.appendChild(newSubInner);
     newSub.appendChild(newSubInner2);
-    document.getElementById('subList').appendChild(newSub);
-    event.preventDefault();
+    console.log(newSub);
+    document.getElementById('content').appendChild(newSub);
   }
 }
-  document.addEventListener('submit', addSub);
+document.addEventListener("submit", function(event){
+  event.preventDefault();
+  addSub();
+});

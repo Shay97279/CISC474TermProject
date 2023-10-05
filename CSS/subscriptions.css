@@ -1,0 +1,11 @@
+.cost{
+    position: relative;
+}
+.sub{
+    margin: 0;
+    background-color: aliceblue;
+    display: inline-block;
+    border: 5px solid #de7878;
+    padding: 5px;
+    
+}

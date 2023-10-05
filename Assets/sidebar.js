@@ -12,7 +12,7 @@ class Sidebar extends HTMLElement {
         <input type="text" id="expenseName" name="expenseName">
         <label for="expenseCost">Expense Cost:</label>
         <input type="text" id="expenseCost" name="expenseCost">
-        <input type="submit" value="Submit">
+        <input type="submit" value="submit">
       </form>
       <form id="assets">
         <label for="assetName">Asset name:</label>
