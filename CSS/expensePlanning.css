@@ -1,0 +1,53 @@
+.column {
+    float: left;
+    width: 45%;
+    height: 100%
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .columnLayout{
+    background-color: #42224A;
+  }
+
+  .expenseContent{
+    background-color: #42224A;
+    width: 100%;
+  }
+  img.exp {
+    width: 100%;
+    height: 100vh;
+    animation: 1s ease-out 0s 1 slideInLeft;
+  }
+
+  img.trend{
+    width: 90%;
+    height: 110vh;
+    margin-left: 10%;
+    animation: 1s ease-out 0s 1 slideInRight;
+  }
+
+  img.exp:hover {
+    opacity:1;
+  }
+
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
