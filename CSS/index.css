@@ -107,6 +107,34 @@ label, input {
     color:blue
 }
 
+body {
+
+    background-image: url("/images/money.jpg");
+
+}
+
+    form {
+        border: 3px solid #f1f1f1;
+        background-color: #f1f1f1;
+    }
+
+    .avatar {
+        width: 20%;
+        border-radius: 100%;
+        margin-right: 80%;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    .loginbutton {
+        width: auto;
+        background-color: blue;
+        padding: 20px;
+    }
+
 .center {
     display: block;
     margin-left: auto;
