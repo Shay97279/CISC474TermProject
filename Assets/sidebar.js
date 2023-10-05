@@ -9,30 +9,30 @@ class Sidebar extends HTMLElement {
       <div class="row">Input Info</div>
       <form id="expenses">
         <label for="expenseName">Expense name:</label>
-        <input type="text" id="expenseName" name="expenseName">
+        <input type="text" id="expenseName" name="name">
         <label for="expenseCost">Expense Cost:</label>
-        <input type="text" id="expenseCost" name="expenseCost">
+        <input type="text" id="expenseCost" name="cost">
         <input type="submit" value="submit">
       </form>
       <form id="assets">
         <label for="assetName">Asset name:</label>
-        <input type="text" id="assetName" name="assetName">
+        <input type="text" id="assetName" name="name">
         <label for="assetValue">Asset Value:</label>
-        <input type="text" id="assetValue" name="assetValue">
+        <input type="text" id="assetValue" name="cost">
         <input type="submit" value="Submit">
       </form>
       <form id="income">
         <label for="monthlyIncome">Monthly Income:</label>
-        <input type="text" id="monthlyIncome" name="monthlyIncome">
+        <input type="text" id="monthlyIncome" name="name">
         <input type="submit" value="Submit">
       </form>
       <form id="goals">
         <label for="goalName">Goal:</label>
-        <input type="text" id="goalName" name="goalName">
+        <input type="text" id="goalName" name="name">
         <label for="goalCost">Goal Cost:</label>
-        <input type="text" id="goalCost" name="goalCost">
+        <input type="text" id="goalCost" name="cost">
         <label for="goalDate">Goal Date:</label>
-        <input type="text" id="goalDate" name="goalDate">
+        <input type="text" id="goalDate" name="date">
         <input type="submit" value="Submit">
       </form>
 </div>
