@@ -49,14 +49,26 @@ body {
     text-align: right; /* Align text to the right */
 }
 
-.button {
+.help-button {
+    background-color: rgb(68, 139, 231);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 35px;
+}
+
+.general_button {
     background-color: rgb(68, 139, 231);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-.button:hover {
+.general_button:hover {
+    color: rgb(34, 233, 140)
+}
+
+.help-button:hover {
     color: rgb(34, 233, 140)
 }
 
@@ -84,11 +96,11 @@ body {
 
 /* Style for each form */
 form {
-margin: 10px 0; /* Add spacing between forms */
+    margin: 10px 0; /* Add spacing between forms */
 }
 
 label, input {
-display: block; /* Place label and input elements on separate lines */
+    display: block; /* Place label and input elements on separate lines */
 } 
 
 .standard {
@@ -101,7 +113,7 @@ body {
 
 }
 
-    form {
+    .login-form {
         border: 3px solid #f1f1f1;
         background-color: #f1f1f1;
     }
@@ -122,3 +134,18 @@ body {
         background-color: blue;
         padding: 20px;
     }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.row {
+    display: flex;
+}
+
+.splitcol {
+    flex: 50%
+}
