@@ -21,4 +21,4 @@ const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 const analytics = getAnalytics(app);
 
-// Detect auth state
+console.log('hello from index.js')
