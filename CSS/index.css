@@ -107,11 +107,7 @@ label, input {
     color:blue
 }
 
-body {
 
-    background-image: url("../Images/money.jpg");
-
-}
 
     .login-form {
         border: 3px solid #f1f1f1;
