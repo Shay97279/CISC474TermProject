@@ -25,6 +25,11 @@ nav {
     height:300px;
 }
 
+background {
+
+    background:linear-gradient(to bottom, rgb(175, 223, 249) 0%, rgb(249, 60, 18) 100%);
+}
+
 body {
     margin:0;
     padding: 0;
