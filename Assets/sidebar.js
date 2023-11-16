@@ -6,7 +6,7 @@ class Sidebar extends HTMLElement {
     connectedCallback() {
       //Could move the style stuff to a CSS file
       this.innerHTML = `<div class="sidebar">
-      <div class="row">Input Info</div>
+      <div class="row" style = "text-align:center;">Input Financial Info</div>
       <form id="expenses">
         <label for="expenseName" style = "text-align:center;">Expense name:</label>
         <input type="text" id="expenseName" name="name">
