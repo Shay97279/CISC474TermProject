@@ -6,8 +6,9 @@ nav {
     margin: 0;
     background-color:  #234E70;
     z-index: 100; /*keeps it in front of other things as you scroll*/
-    position: fixed;
-    width: 100%;
+    position: fixed; 
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
   }
   
   a {
