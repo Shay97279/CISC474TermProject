@@ -8,16 +8,18 @@
   <link href="../CSS/subscriptions.css" rel="stylesheet" type="text/css" />
     <script src="../Assets/header.js" type="text/javascript" defer></script>
     <script src="../Assets/sidebar.js" type="text/javascript" defer></script>
-    <script type="module" src="../Assets/addSubscription.js"></script>
+    <script defer type="module" src="../Assets/addSubscription.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+		crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
       <div><header-component></header-component></div>
       <div><sidebar-component></sidebar-component></div>
       <div class="content">
-        <div class="sub" id="Netflix">
-          <h1 class="name">Netflix</h1>
-          <h3 class="price">Price: $9.99</h2>
+        <div id="subscriptions">
+
         </div>
 		  </div>
 	  </div>
