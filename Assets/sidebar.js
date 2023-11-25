@@ -7,11 +7,11 @@ class Sidebar extends HTMLElement {
       //Could move the style stuff to a CSS file
       this.innerHTML = `<div class="sidebar">
       <div class="row">Input Info</div>
-      <form id="expenses">
+      <form id="expenses" method="post" action="/">
         <label for="expenseName">Expense name:</label>
-        <input type="text" id="expenseName" name="name">
+        <input type="text" id="expenseName" name="expenseName">
         <label for="expenseCost">Expense Cost:</label>
-        <input type="text" id="expenseCost" name="cost">
+        <input type="text" id="expenseCost" name="expenseCost">
         <input type="submit" value="submit">
       </form>
       <form id="assets">
