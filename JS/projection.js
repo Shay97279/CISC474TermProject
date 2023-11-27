@@ -50,8 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
             .duration(duration)
             .attr("x1", xScale(monthsToAchieveGoal))
             .attr("x2", xScale(monthsToAchieveGoal));
-        
-        
+
+        svg.select(".goal-values")
+            .text(`Target: ${monthlySavings*monthsToAchieveGoal} OR  Months: ${targetAmount/monthlySavings}  OR  Savings: ${targetAmount/monthsToAchieveGoal}`);
+
     };
 
     //Create first graph
@@ -65,9 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
         savingsData.push({ x: i, y: i * monthlySavings });
     }
 
-    const margin = { top: 20, right: 50, bottom: 50, left: 60 }; 
-    const width = 500 - margin.left - margin.right;
-    const height = 300 - margin.top - margin.bottom;
+    const margin = { top: 20, right: 50, bottom: 80, left: 60 }; 
+    const width = 600 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
 
     // Create SVG element within the "projection" div
     const svg = d3.select("#projection")
@@ -148,6 +150,20 @@ document.addEventListener("DOMContentLoaded", function () {
         .attr("x", -height / 2)
         .style("text-anchor", "middle")
         .text("Savings");
+
+    //append info regarding needed values to make goal
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.top + 35)
+        .style("text-anchor", "middle")
+        .text("In order to meet this goal, try...");
+    
+    svg.append("text")
+        .attr("class", "goal-values")
+        .attr("x", width / 2)
+        .attr("y", height + margin.top + 55)
+        .style("text-anchor", "middle")
+        .text(`Target: ${monthlySavings*monthsToAchieveGoal} OR  Months: ${targetAmount/monthlySavings}  OR  Savings: ${targetAmount/monthsToAchieveGoal}`);
 
     updateGraph();
 });
