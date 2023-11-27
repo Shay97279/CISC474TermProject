@@ -33,6 +33,16 @@ app.post('/user', async (req, res) => {
 	}
 });
 
+app.get('/user', async (req, res) => {
+	try {
+		const users = await User.find();
+		res.send(users);
+	}
+	catch (err) {
+		console.log("error" + err);
+	}
+});
+
 app.listen(port, () => {
 	console.log(`server started on ${port}`);
 });
