@@ -1,24 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const moneyScema = new Schema({
+    name: String,
+    amount: Number
+});
+const Money = mongoose.model('money', moneyScema);
 
 const userSchema = new Schema({
     firstName: String,
     lastName: String,
     email: {type:String, unique: true},
-    expenses: [{
-        expenseName: String,
-        expenseAmount: Number
-    }],
-    income: [{
-        incomeName: String,
-        incomeAmount: Number
-    }],
-    budget: [{
-        budgetName: String,
-        budgetAmount: Number
-    }]
+    expenses: [moneyScema],
+    income: [moneyScema],
+    budget: [moneyScema]
     });
 
 const User = mongoose.model('user', userSchema);
 
+module.exports = Money;
 module.exports = User;
