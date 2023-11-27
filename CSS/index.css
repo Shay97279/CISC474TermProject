@@ -48,6 +48,7 @@ body {
 .column {
     flex: 1; /* Grow and shrink to occupy available space */
     text-align: center; /* Center text */
+    
 }
 
 .rcolumn {
