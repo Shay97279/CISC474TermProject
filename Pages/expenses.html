@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Expenses</title>
-    <!-- <link href="../CSS/index.css" rel="stylesheet" type="text/css" /> -->
+	<title>Expenses</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="../Assets/header.js" type="text/javascript" defer></script>
-    <script src="../Assets/sidebar.js" type="text/javascript" defer></script>
-    <link href="../CSS/index.css" rel="stylesheet"/>
-    <!-- <link href="../CSS/landing.css" rel="stylesheet" type="text/css" /> -->
-    <link href="../CSS/expensePlanning.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="../Assets/sidebar.js" type="text/javascript" defer></script> -->
+    <!-- <link href="../CSS/index.css" rel="stylesheet"/> -->
 </head>
-    <body>
-        <div class="container">
-          <div><header-component></header-component></div>
-          <div><sidebar-component></sidebar-component></div>
-          <div class = "expenseContent">
-            <div class="content">
-              <div class="columnLayout">
-                <div class="column">
-                
-                  <img src="../Images/appexpenseleft.png" alt="exe"  class="exp">
-                </div>
-                <div class="column">
-                  
-                  <img src="../Images/costtoassets.png" alt="It" class="trend"></div>
+<body onload="showExpenses()">
+	<div class="container">
+        <div><header-component></header-component></div>
+        <div><sidebar-component></sidebar-component></div>
+		<div class="row">
+			<div class="col-md-8 mx-auto">
+				<h1>Expense Tracker</h1>
+				<form onsubmit="return addExpense()">
+					<input type="hidden" id="editIndex">
+					<div class="form-group">
+						<label for="date">Date:</label>
+						<input type="date" id="date" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label for="category">Category:</label>
+						<input type="text" id="category" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label for="amount">Amount:</label>
+						<input type="number" id="amount" class="form-control" required>
+					</div>
+					<button type="submit" id="addButton" class="btn btn-primary">Add Expense</button>
+				</form>
+				<br>
+				<table class="table table-striped table-bordered" id="expenseTable">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Category</th>
+							<th>Amount</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-    </body>
-<html>
+    <script src="../JS/expenses.js">
+    </script>
