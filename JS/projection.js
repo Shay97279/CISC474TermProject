@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         svg.select(".goal-values")
             .text(`Target: ${monthlySavings*monthsToAchieveGoal} OR  Months: ${targetAmount/monthlySavings}  OR  Savings: ${targetAmount/monthsToAchieveGoal}`);
-
     };
 
     //Create first graph

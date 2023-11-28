@@ -153,3 +153,7 @@ label, input {
 .splitcol {
     flex: 50%
 }
+
+.entrybox {
+    width: 50%;
+}
