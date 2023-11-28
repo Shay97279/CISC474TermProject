@@ -135,8 +135,9 @@ label, input {
 
     .loginbutton {
         width: auto;
-        background-color: blue;
+        background-color: #FBF8BE;
         padding: 20px;
+        color: black;
     }
 
 .center {
