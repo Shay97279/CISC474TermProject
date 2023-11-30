@@ -32,7 +32,7 @@ app.post('/user', async (req, res) => {
 		console.log("error" + err);
 	}
 });
-app.post('/api/v1/addExpense', async (req, res) => {
+app.post('/api/v1/expenses', async (req, res) => {
 	try {
 		console.log(req.body);
 		const update = {name: req.body.expenses.name, amount: req.body.expenses.amount, category: req.body.expenses.category, date: req.body.expenses.date};
@@ -44,7 +44,7 @@ app.post('/api/v1/addExpense', async (req, res) => {
 		console.log("error: " + err);
 	}
 });
-app.delete('/api/v1/removeExpense', async (req, res) => {
+app.delete('/api/v1/expenses', async (req, res) => {
 	try {
 		//console.log(req.body);
 		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "expenses": { "name": req.body.expenses.name} } });
@@ -54,7 +54,7 @@ app.delete('/api/v1/removeExpense', async (req, res) => {
 		console.log("error: " + err);
 	}
 });
-app.get('/api/v1/getExpenses', async (req, res) => {
+app.get('/api/v1/expenses', async (req, res) => {
 	try {
 		const users = await connection.collection('users').findOne({ "email": req.body.email });
 		res.send(users.expenses);
@@ -63,7 +63,7 @@ app.get('/api/v1/getExpenses', async (req, res) => {
 		console.log("error" + err);
 	}
 });
-app.post('/api/v1/addIncome', async (req, res) => {
+app.post('/api/v1/income', async (req, res) => {
 	try {
 		console.log(req.body);
 		const update = {name: req.body.income.name, amount: req.body.income.amount, category: req.body.income.category, date: req.body.income.date};
@@ -75,7 +75,7 @@ app.post('/api/v1/addIncome', async (req, res) => {
 		console.log("error: " + err);
 	}
 });
-app.delete('/api/v1/removeIncome', async (req, res) => {
+app.delete('/api/v1/income', async (req, res) => {
 	try {
 		//console.log(req.body);
 		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "income": { "name": req.body.income.name} } });
@@ -85,7 +85,7 @@ app.delete('/api/v1/removeIncome', async (req, res) => {
 		console.log("error: " + err);
 	}
 });
-app.get('/api/v1/getIncome', async (req, res) => {
+app.get('/api/v1/income', async (req, res) => {
 	try {
 		const users = await connection.collection('users').findOne({ "email": req.body.email });
 		res.send(users.income);
