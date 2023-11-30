@@ -36,8 +36,8 @@
 	$('#expensesButton').click(function () {
 		console.log("Clicked");
             $.ajax({
-                url: "/api/v1/subscriptions?expenseName=" + document.getElementById("expenseName").value
-                    + "&expenseCost=" + document.getElementById("expsenseCost").value,
+                url: "/api/v1/subscriptions?name=" + document.getElementById("expenseName").value
+                    + "&cost=" + document.getElementById("expsenseCost").value,
                 type: 'POST',
                 success: function (result) {
                     console.log("Add Returned");

@@ -32,25 +32,38 @@ app.post('/user', async (req, res) => {
 		console.log("error" + err);
 	}
 });
-app.post('/api/v1/subscriptions', async (req, res) => {
+app.post('/api/v1/addExpense', async (req, res) => {
 	try {
 		console.log(req.body);
-		const newUser = new User({
-			firstName: "req.body.firstName",
-			lastName: "req.body.lastName",
-			email: "req.body.email",
-			expenses: [],
-			income: [],
-			budget: []
-		});
-		await User.create(newUser);
-		res.send("User created");
+		const update = {name: req.body.expenses.name, amount: req.body.expenses.amount, category: req.body.expenses.category, date: req.body.expenses.date};
+		console.log(update);
+		await connection.collection('users').updateOne({ "email": req.body.email }, { $push: { "expenses": update } });
+		res.send("User updated");
+	}
+	catch (err) {
+		console.log("error: " + err);
+	}
+});
+app.delete('/api/v1/removeExpense', async (req, res) => {
+	try {
+		console.log(req.body);
+		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "expenses": { "name": req.body.expenses.name} } });
+		res.send("User updated: Expense deleted");
+	}
+	catch (err) {
+		console.log("error: " + err);
+	}
+});
+app.get('/user', async (req, res) => {
+	try {
+		const users = await User.find();
+		res.send(users);
 	}
 	catch (err) {
 		console.log("error" + err);
 	}
 });
-app.get('/user', async (req, res) => {
+app.get('/api/v1/subscriptions', async (req, res) => {
 	try {
 		const users = await User.find();
 		res.send(users);

@@ -14,14 +14,17 @@ const userSchema = new Schema({
     expenses: [{
         name: String,
         amount: Number,
+        category: String,
         date: {type: Date, default: Date.now} }],
     income: [{
         name: String,
         amount: Number,
+        category: String,
         date: {type: Date, default: Date.now} }],
     budget: [{
         name: String,
         amount: Number,
+        category: String,
         date: {type: Date, default: Date.now} }]
 });
 
