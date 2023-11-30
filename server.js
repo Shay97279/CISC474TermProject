@@ -46,12 +46,21 @@ app.post('/api/v1/addExpense', async (req, res) => {
 });
 app.delete('/api/v1/removeExpense', async (req, res) => {
 	try {
-		console.log(req.body);
+		//console.log(req.body);
 		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "expenses": { "name": req.body.expenses.name} } });
 		res.send("User updated: Expense deleted");
 	}
 	catch (err) {
 		console.log("error: " + err);
+	}
+});
+app.get('/api/v1/getExpenses', async (req, res) => {
+	try {
+		const users = await connection.collection('users').findOne({ "email": req.body.email });
+		res.send(users);
+	}
+	catch (err) {
+		console.log("error" + err);
 	}
 });
 app.get('/user', async (req, res) => {
