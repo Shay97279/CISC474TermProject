@@ -57,7 +57,7 @@ app.delete('/api/v1/removeExpense', async (req, res) => {
 app.get('/api/v1/getExpenses', async (req, res) => {
 	try {
 		const users = await connection.collection('users').findOne({ "email": req.body.email });
-		res.send(users);
+		res.send(users.expenses);
 	}
 	catch (err) {
 		console.log("error" + err);
@@ -88,7 +88,7 @@ app.delete('/api/v1/removeIncome', async (req, res) => {
 app.get('/api/v1/getIncome', async (req, res) => {
 	try {
 		const users = await connection.collection('users').findOne({ "email": req.body.email });
-		res.send(users);
+		res.send(users.income);
 	}
 	catch (err) {
 		console.log("error" + err);
