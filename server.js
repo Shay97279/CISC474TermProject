@@ -63,6 +63,37 @@ app.get('/api/v1/getExpenses', async (req, res) => {
 		console.log("error" + err);
 	}
 });
+app.post('/api/v1/addIncome', async (req, res) => {
+	try {
+		console.log(req.body);
+		const update = {name: req.body.income.name, amount: req.body.income.amount, category: req.body.income.category, date: req.body.income.date};
+		console.log(update);
+		await connection.collection('users').updateOne({ "email": req.body.email }, { $push: { "income": update } });
+		res.send("User updated");
+	}
+	catch (err) {
+		console.log("error: " + err);
+	}
+});
+app.delete('/api/v1/removeIncome', async (req, res) => {
+	try {
+		//console.log(req.body);
+		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "income": { "name": req.body.income.name} } });
+		res.send("User updated: Income deleted");
+	}
+	catch (err) {
+		console.log("error: " + err);
+	}
+});
+app.get('/api/v1/getIncome', async (req, res) => {
+	try {
+		const users = await connection.collection('users').findOne({ "email": req.body.email });
+		res.send(users);
+	}
+	catch (err) {
+		console.log("error" + err);
+	}
+});
 app.get('/user', async (req, res) => {
 	try {
 		const users = await User.find();
