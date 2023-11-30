@@ -14,7 +14,7 @@ class Header extends HTMLElement {
           <a class="column" href="Pages/subscriptions.html">Subscriptions</a>
           <a class="column" href="Pages/assets.html">Assets</a>
           <a class="column" href="Pages/about.html">About</a>
-          <a class="column" href="Pages/help.html">Finance Fundamentals</a>
+          <a class="column" href="Pages/help.html">Assistance</a>
         </div>
       </nav>
       `;
