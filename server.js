@@ -35,7 +35,7 @@ app.post('/user', async (req, res) => {
 app.post('/api/v1/expenses', async (req, res) => {
 	try {
 		console.log(req.body);
-		const update = {name: req.body.expenses.name, amount: req.body.expenses.amount, category: req.body.expenses.category, date: req.body.expenses.date};
+		const update = { name: req.body.expenses.name, amount: req.body.expenses.amount, category: req.body.expenses.category, date: req.body.expenses.date };
 		console.log(update);
 		await connection.collection('users').updateOne({ "email": req.body.email }, { $push: { "expenses": update } });
 		res.send("User updated");
@@ -47,7 +47,7 @@ app.post('/api/v1/expenses', async (req, res) => {
 app.delete('/api/v1/expenses', async (req, res) => {
 	try {
 		//console.log(req.body);
-		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "expenses": { "name": req.body.expenses.name} } });
+		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "expenses": { "name": req.body.expenses.name } } });
 		res.send("User updated: Expense deleted");
 	}
 	catch (err) {
@@ -66,7 +66,7 @@ app.get('/api/v1/expenses', async (req, res) => {
 app.post('/api/v1/income', async (req, res) => {
 	try {
 		console.log(req.body);
-		const update = {name: req.body.income.name, amount: req.body.income.amount, category: req.body.income.category, date: req.body.income.date};
+		const update = { name: req.body.income.name, amount: req.body.income.amount, category: req.body.income.category, date: req.body.income.date };
 		console.log(update);
 		await connection.collection('users').updateOne({ "email": req.body.email }, { $push: { "income": update } });
 		res.send("User updated");
@@ -78,7 +78,7 @@ app.post('/api/v1/income', async (req, res) => {
 app.delete('/api/v1/income', async (req, res) => {
 	try {
 		//console.log(req.body);
-		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "income": { "name": req.body.income.name} } });
+		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "income": { "name": req.body.income.name } } });
 		res.send("User updated: Income deleted");
 	}
 	catch (err) {
@@ -94,6 +94,39 @@ app.get('/api/v1/income', async (req, res) => {
 		console.log("error" + err);
 	}
 });
+app.post('/api/v1/budget', async (req, res) => {
+	try {
+		console.log(req.body);
+		const update = { name: req.body.budget.name, amount: req.body.budget.amount, category: req.body.budget.category, date: req.body.budget.date };
+		console.log(update);
+		await connection.collection('users').updateOne({ "email": req.body.email }, { $push: { "budget": update } });
+		res.send("User updated");
+	}
+	catch (err) {
+		console.log("error: " + err);
+	}
+});
+app.delete('/api/v1/budget', async (req, res) => {
+	try {
+		//console.log(req.body);
+		await connection.collection('users').updateMany({ "email": req.body.email }, { $pull: { "budget": { "name": req.body.income.name } } });
+		res.send("User updated: budget deleted");
+	}
+	catch (err) {
+		console.log("error: " + err);
+	}
+});
+app.get('/api/v1/budget', async (req, res) => {
+	try {
+		const users = await connection.collection('users').findOne({ "email": req.body.email });
+		res.send(users.budget);
+	}
+	catch (err) {
+		console.log("error" + err);
+	}
+});
+
+
 app.get('/user', async (req, res) => {
 	try {
 		const users = await User.find();
