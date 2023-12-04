@@ -63,6 +63,15 @@ app.get('/api/v1/expenses', async (req, res) => {
 		console.log("error" + err);
 	}
 });
+app.get('/api/v1/subscriptions', async (req, res) => {
+	try {
+		const users = await connection.collection('users').find({ "email": req.body.email});
+		res.send(users);
+	}
+	catch (err) {
+		console.log("error" + err);
+	}
+});
 app.post('/api/v1/income', async (req, res) => {
 	try {
 		console.log(req.body);
