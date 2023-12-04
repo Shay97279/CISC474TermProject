@@ -6,32 +6,32 @@ class Sidebar extends HTMLElement {
     connectedCallback() {
       //Could move the style stuff to a CSS file
       this.innerHTML = `<div class="sidebar">
-      <div class="row">Input Info</div>
+      <div class="row" style = "text-align:center;">Input Financial Info</div><br>
       <form id="expenses">
-        <label for="expenseName">Expense name:</label>
-        <input type="text" id="expenseName" name="expenseName">
-        <label for="expenseCost">Expense Cost:</label>
-        <input type="text" id="expenseCost" name="expenseCost">
-        <input type="button" id="expensesButton" value="submit">
+        <label for="expenseName" style = "text-align:center;">Expense name:</label>
+        <input type="text" id="expenseName" name="name">
+        <label for="expenseCost" style = "text-align:center;">Expense Cost:</label>
+        <input type="text" id="expenseCost" name="cost">
+        <input type="submit" value="submit"><br>
       </form>
       <form id="assets">
-        <label for="assetName">Asset name:</label>
+        <label for="assetName" style = "text-align:center;">Asset name:</label>
         <input type="text" id="assetName" name="name">
-        <label for="assetValue">Asset Value:</label>
+        <label for="assetValue" style = "text-align:center;">Asset Value:</label>
         <input type="text" id="assetValue" name="cost">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit"><br>
       </form>
       <form id="income">
-        <label for="monthlyIncome">Monthly Income:</label>
+        <label for="monthlyIncome" style = "text-align:center;">Monthly Income:</label>
         <input type="text" id="monthlyIncome" name="name">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit"><br>
       </form>
       <form id="goals">
-        <label for="goalName">Goal:</label>
+        <label for="goalName" style = "text-align:center;">Goal:</label>
         <input type="text" id="goalName" name="name">
-        <label for="goalCost">Goal Cost:</label>
+        <label for="goalCost" style = "text-align:center;">Goal Cost:</label>
         <input type="text" id="goalCost" name="cost">
-        <label for="goalDate">Goal Date:</label>
+        <label for="goalDate" style = "text-align:center;">Goal Date:</label>
         <input type="text" id="goalDate" name="date">
         <input type="submit" value="Submit">
       </form>

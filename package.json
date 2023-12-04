@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "jquery": "^3.7.1",
-    "punycode": "^2.3.1"
+    "punycode": "^2.3.1",
+    "d3": "^5.16.0"
   }
 }
