@@ -186,7 +186,6 @@ function monthTrend() {
     };*/
 }
 
-
 function typePie() {
     // Assuming expenses is already loaded from local storage or another source
     const expenses = JSON.parse(localStorage.getItem('expenses'));
