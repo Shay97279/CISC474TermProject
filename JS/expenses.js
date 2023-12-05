@@ -13,6 +13,7 @@ function addExpense() {
         var tableBody = document.getElementById('expenseTable').getElementsByTagName('tbody')[0];
         var row = '<tr><td>' + date + '</td><td>' + category + '</td><td>' + amount + '</td><td><button type="button" class="btn btn-sm btn-primary" onclick="editForm(this.parentNode.parentNode)">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="deleteExpense(this.parentNode.parentNode)">Delete</button></td></tr>';
         tableBody.insertAdjacentHTML('beforeend', row);
+        console.log("LOCAL STRG", localStorage.getItem('expenses'))
     } else {
         editExpense(editIndex, date, category, amount);
     }
@@ -67,10 +68,12 @@ resetForm();
 // show expenses in table
 function showExpenses() {
 var expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+console.log("this is the curr ex", expenses);
 var tableBody = document.getElementById('expenseTable').getElementsByTagName('tbody')[0];
 for (var i = 0; i < expenses.length; i++) {
     var expense = expenses[i];
     var row = '<tr><td>' + expense.date + '</td><td>' + expense.category + '</td><td>' + expense.amount + '</td><td><button type="button" class="btn btn-sm btn-primary" onclick="editForm(this.parentNode.parentNode)">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="deleteExpense(this.parentNode.parentNode)">Delete</button></td></tr>';
     tableBody.insertAdjacentHTML('beforeend', row);
+    console.log( "HEY", expense.date, expense.category, expense.amount)
 }
 }

@@ -13,8 +13,8 @@ class Header extends HTMLElement {
           <a class="column" href="Pages/projections.html">Projections</a>
           <a class="column" href="Pages/subscriptions.html">Subscriptions</a>
           <a class="column" href="Pages/assets.html">Assets</a>
-          <a class="column" href="Pages/landing.html">About</a>
-          <a class="column" href="Pages/landing.html">Help</a>
+          <a class="column" href="Pages/about.html">About</a>
+          <a class="column" href="Pages/help.html">Assistance</a>
         </div>
       </nav>
       `;
