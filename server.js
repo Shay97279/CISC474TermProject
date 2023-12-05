@@ -65,8 +65,30 @@ app.get('/api/v1/expenses', async (req, res) => {
 });
 app.get('/api/v1/subscriptions', async (req, res) => {
 	try {
-		const users = await connection.collection('users').find({ "email": req.body.email});
-		res.send(users);
+		const users = await connection.collection('users').aggregate([
+			{
+				$match: { email: req.body.email, "expenses.category": "subscriptions" }
+			  },
+			  {
+				$project: {
+				  _id: 0,
+				  expenses: {
+					$filter: {
+					  input: "$expenses",
+					  as: "expense",
+					  cond: { $eq: ["$$expense.category", "subscriptions"] }
+					}
+				  }
+				}
+			  }
+			]);
+		try{
+			const arr = await users.toArray();
+			res.send(arr);
+		}
+		catch(err){
+			console.log("error" + err);
+		}
 	}
 	catch (err) {
 		console.log("error" + err);
