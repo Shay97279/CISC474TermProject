@@ -17,6 +17,7 @@ function addExpense() {
     } else {
         editExpense(editIndex, date, category, amount);
     }
+    console.log(localStorage.getItem('expenses'));
 
     resetForm();
     return false;
