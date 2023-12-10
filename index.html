@@ -24,56 +24,36 @@
             </li>
           </ul>
           <form class="form-inline my-2 my-xl-0">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
-                Get Started
-              </button>
             <div>
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#loginModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
                     Login
                   </button>
             </div>
           </form>
         </div>
       </nav>
-  
-  <!-- Sign Up Modal -->
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Name</label>
-              <input type="name" class="form-control" id="exampleInputName1" placeholder="Enter name">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="col-md-6">
-              <button type="submit" class="btn btn-primary">Sign Up</button>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Login Modal -->
+<!---Sign up--->
+  <form action="/signup" method="post">
+    <div class="mb-3 col-sm-3">
+      <label for="exampleUser" class="form-label">Username</label>
+      <input type="text" class="form-control" id="inputUser">
+    </div>
+    <div class="mb-3 col-sm-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3 col-sm-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword">
+    </div>
+    <div>
+      <input type="submit" class="btn btn-primary">
+    </div>
+  </form>
+
+  <!-- Login Modal ------>
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -84,14 +64,14 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/login" method="post">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
             </div>
             <div class="col-md-6">
               <button type="submit" class="btn btn-primary">Login</button>
