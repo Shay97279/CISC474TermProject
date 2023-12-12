@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname + "/index.html"));
 	console.log("Express loads on main page!");
   });
+
 app.post('/user', async (req, res) => {
 	try {
 		console.log(req.body);
@@ -36,6 +37,35 @@ app.post('/user', async (req, res) => {
 		console.log("error" + err);
 	}
 });
+
+//----------------------Sign Up-----------------------------
+
+app.post('/api/v1/addUser', function(req, res) {
+	const firstName = req.query.firstName;
+	const lastName = req.query.lastName;
+	const email = req.query.email;
+	const password = req.query.password;
+	data = {'firstName':firstName, 'LastName':lastName, 'email':email, 'password':password};
+	console.log(data);
+	addUser(client, data).then(function(id) {
+		res.send(id);
+	});
+});
+
+async function addUser(client, user) {
+	const result = await client.adb("cluster0").collection("users").insertOne(user);
+	console.log(`New user created with the following id: ${result.insertedId}`);
+	return result.insertedId;
+}
+
+//------------------------Login-----------------------------
+
+app.get('api/v1/login', function(req, res) {
+	const email = req.query.email;
+	const password = req.query.password;
+	let idstr = null;
+})
+
 app.post('/api/v1/expenses', async (req, res) => {
 	try {
 		console.log(req.body);
