@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const path = require('path');
 const mongoose = require('mongoose');
 const port = 8080;
 const User = require('./models/user');
@@ -13,7 +14,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {
 	console.log("MongoDB database connection established successfully");
 });
-
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname + "/index.html"));
+	console.log("Express loads on main page!");
+  });
 app.post('/user', async (req, res) => {
 	try {
 		console.log(req.body);
@@ -125,6 +129,37 @@ app.get('/api/v1/income', async (req, res) => {
 		console.log("error" + err);
 	}
 });
+app.get('/api/v1/assets', async (req, res) => {
+	try {
+		const users = await connection.collection('users').aggregate([
+			{
+				$match: { email: req.body.email, "income.category": "asset" }
+			},
+			{
+				$project: {
+					_id: 0,
+					expenses: {
+						$filter: {
+							input: "$assets",
+							as: "asset",
+							cond: { $eq: ["$$income.category", "asset"] }
+						}
+					}
+				}
+			}
+		]);
+		try {
+			const arr = await users.toArray();
+			res.send(arr);
+		}
+		catch (err) {
+			console.log("error" + err);
+		}
+	}
+	catch (err) {
+		console.log("error" + err);
+	}
+});
 app.post('/api/v1/budget', async (req, res) => {
 	try {
 		console.log(req.body);
@@ -156,18 +191,17 @@ app.get('/api/v1/budget', async (req, res) => {
 		console.log("error" + err);
 	}
 });
-
-
-app.get('/user', async (req, res) => {
+app.get('/api/v1/login', async (req, res) => {
 	try {
-		const users = await User.find();
-		res.send(users);
+		const users = await connection.collection('users').findOne({ "email": req.body.email , "password": req.body.password});
+		res.send(users._id);
 	}
 	catch (err) {
 		console.log("error" + err);
 	}
 });
-app.get('/api/v1/subscriptions', async (req, res) => {
+
+app.get('/user', async (req, res) => {
 	try {
 		const users = await User.find();
 		res.send(users);
