@@ -22,7 +22,7 @@
     justify-content: center;
     gap: 50px;
     color: #fff;
-    background: linear-gradient(454deg, navy, black)
+    background: linear-gradient(454deg, rgb(0, 0, 192), yellow)
 }
 
 .slides {
