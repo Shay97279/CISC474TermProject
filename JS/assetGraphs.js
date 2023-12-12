@@ -158,6 +158,8 @@ function EVbyYear() {
         {"name":"stock2","category":"investment","amount":"123","growthRate":0.08},
         {"name":"car","category":"thing","amount":"45","growthRate":0.02}]);
 
+    const years = 5;
+
     const assets = JSON.parse(mockData);
 
     const margin = { top: 20, right: 20, bottom: 50, left: 40 };
@@ -178,7 +180,7 @@ function EVbyYear() {
     // Calculate the total amount and projected amount for each category
     const categoryTotal = Array.from(assetsByCategory, ([category, values]) => {
         const total = d3.sum(values, d => +d.amount);
-        const projected = total * Math.pow(1 + d3.mean(values, d => d.growthRate), 5); // Assuming 5 years for projection
+        const projected = total * Math.pow(1 + d3.mean(values, d => d.growthRate), years); 
         return {
             category,
             total,
@@ -217,7 +219,7 @@ function EVbyYear() {
         .attr("y", d => yScale(d.projected))
         .attr("height", d => height - yScale(d.projected))
         .attr("fill", "orange");
-
+        
     // Draw x-axis
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
