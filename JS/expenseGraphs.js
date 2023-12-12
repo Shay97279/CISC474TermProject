@@ -1,5 +1,3 @@
-//const { local } = require("d3");
-
 //accessing data: localStorage.getItem('expenses')
 function parseData() {
     return
@@ -192,7 +190,6 @@ function typePie() {
     expenses.forEach(function (d) {
         d.date = new Date(d.date);
     });
-
     const width = 400;
     const height = 400;
     const radius = Math.min(width, height) / 2;
@@ -234,14 +231,29 @@ function typePie() {
     // Draw the pie chart slices
     slices.append("path")
         .attr("d", arc)
-        .attr("fill", (d, i) => d3.schemeCategory10[i]);
+        .attr("fill", (d, i) => d3.schemeCategory10[i])
+        .on("mouseover", function (event, d) {
+            // Show tooltip on hover
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", 0.9);
+            tooltip.html(`${d.data.category}<br/>Value: $${d.data.total.toFixed(2)}<br/>Percentage: ${((d.endAngle - d.startAngle) / (2 * Math.PI) * 100).toFixed(2)}%`)
+                .style("left", (event.pageX) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        });
 
     // Add labels to the pie chart slices
     slices.append("text")
         .attr("transform", d => "translate(" + arc.centroid(d) + ")")
         .attr("dy", "0.35em")
         .attr("text-anchor", "middle")
-        .text(d => d.data.category);    
+        .text(d => d.data.category);
+    
+    const tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+  
 }
 
 function typeBar() {
