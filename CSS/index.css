@@ -8,11 +8,11 @@
 .title{
     color: white;
     position: relative;
-    left: -3%;
+    left: -1%;
 }
 
 .logo {
-    width: 10%;
+    width: 8%;
 }
 
 .mainslide {
@@ -33,21 +33,7 @@
     justify-content: center;
     gap: 50px;
     color: #fff;
-}
-
-.slides img {
-    width: 350px;
-}
-
-.slides h2 {
-    font-size: 70px;
-    font-weight: 600;
-    max-width: 650px;
-}
-
-.slide1 {
-    background: url(background.jpg);
-    /*background: linear-gradient(454deg, navy, black)*/
+    background: linear-gradient(454deg, rgb(0, 0, 192), yellow)
 }
 
 /*
@@ -131,11 +117,6 @@ body {
     flex: 1; /* Allow content to take up remaining space */
     padding: 20px;
     margin-top: -20px;
-}
-
-/* Style for each form */
-form {
-    margin: 10px 0; /* Add spacing between forms */
 }
 
 label, input {

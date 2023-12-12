@@ -1,12 +1,28 @@
 const express = require("express")
 const app = express()
 const path = require("path")
+const port = 8080;
 const collection = require("./mongodb")
 
-app.use(express.json())
-app.set("view engine", "hbs")
-app.set("views", templatePath)
-app.use(express.urlencoded({extended: false}))
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+
+app.use(function(req, res, next) {
+    const { url, path: routePath } = req;
+    console.log( 'Request: Timestamp:', new Date().toLocaleString(), ', URL (' + url + '), PATH (' + routePath + ').' );
+    next();
+});
+
+app.use('/', express.static(path.join(__dirname, '')))
+app.listen(port, () => {
+    console.log(`Server running on port ${port}...`)
+})
+
+//mongodb connection
+
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+
 
 app.get("/",(req, res) => {
     res.render("login")
@@ -18,7 +34,8 @@ app.get("/signup",(req, res) => {
 
 app.post("/signup",async(req, res) => {
     const data = {
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password
     }

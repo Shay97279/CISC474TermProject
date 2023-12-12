@@ -9,7 +9,11 @@ mongoose.connect("mongodb://localhost:27017/").then(() => {
 })
 
 const logIn = new mongoose.Schema({
-    name:{
+    firstName:{
+        type: String,
+        required: true
+    },
+    lastName:{
         type: String,
         required: true
     },
