@@ -15,9 +15,10 @@
 
     <body>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h1 class="fs-1" href="#" style="color:navy">Finance Freaks</h1>
-      
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <img class="logo" src="/Images/logo.png" alt="logo" class="d-inline-block align-text-top">
+            <h1 class="title">Finance Freaks</h1>
+          
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -33,25 +34,41 @@
         </div>
       </nav>
 
-<!---Sign up--->
-  <form action="/signup" method="post">
-    <div class="mb-3 col-sm-3">
-      <label for="exampleUser" class="form-label">Username</label>
-      <input type="text" name="name" class="form-control" id="inputUser">
-    </div>
-    <div class="mb-3 col-sm-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" name="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3 col-sm-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" name="password" class="form-control" id="inputPassword">
-    </div>
-    <div>
-      <input type="submit" class="btn btn-primary">
-    </div>
-  </form>
+      <!---Sign up--->
+  <div class="mainslide">
+    <form action="/signup" method="post">
+      <div class="mb-3 col-sm-3">
+        <label for="exampleUser" class="form-label">Username</label>
+        <input type="text" name="name" class="form-control" id="inputUser">
+      </div>
+      <div class="mb-3 col-sm-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3 col-sm-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="inputPassword">
+      </div>
+      <div>
+        <input type="submit" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+
+  <div class="slides">
+    <img src="/Images/background.jpg">
+    <h2>Graph</h2>
+  </div>
+  <div class="slides">
+    <img src="/Images/background.jpg">
+    <h2>Graph</h2>
+  </div>
+  <div class="slides">
+    <img src="/Images/background.jpg">
+    <h2>Graph</h2>
+  </div>
+
 
   <!-- Login Modal ------>
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -88,6 +105,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     </body>
 
 <html>

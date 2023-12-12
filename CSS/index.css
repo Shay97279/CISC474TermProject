@@ -1,3 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.title{
+    color: white;
+    position: relative;
+    left: -3%;
+}
+
+.logo {
+    width: 10%;
+}
+
+.mainslide {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color: #fff;
+    background: linear-gradient(454deg, navy, black)
+}
+
+.slides {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color: #fff;
+}
+
+.slides img {
+    width: 350px;
+}
+
+.slides h2 {
+    font-size: 70px;
+    font-weight: 600;
+    max-width: 650px;
+}
+
+.slide1 {
+    background: url(background.jpg);
+    /*background: linear-gradient(454deg, navy, black)*/
+}
+
+/*
 nav {
     padding: 15px;
     align-items: center;
@@ -5,26 +58,26 @@ nav {
     justify-content: space-between;
     margin: 0;
     background-color:  #234E70;
-    z-index: 100; /*keeps it in front of other things as you scroll*/
+    z-index: 100;
     position: fixed; 
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+    top: 0;
+    width: 100%;
   }
+*/
+
+
   
-  a {
+a {
     font-weight: 700;
     margin: 0 25px;
     color: #FBF8BE;
     text-decoration: none;
   }
   
-  a:hover {
+a:hover {
     padding-bottom: 5px;
     box-shadow: inset 0 -2px 0 0 #dbd6d6;
   }
-  img {
-    height:300px;
-}
 
 body {
     margin:0;
@@ -74,11 +127,6 @@ body {
     color: rgb(34, 233, 140)
 }
 
-.container {
-    display: flex;
-    width: 100%;
-}
-
 .content {
     flex: 1; /* Allow content to take up remaining space */
     padding: 20px;
@@ -109,11 +157,6 @@ label, input {
         width: 20%;
         border-radius: 100%;
         margin-right: 80%;
-    }
-
-    .imgcontainer {
-        text-align: center;
-        margin: 24px 0 12px 0;
     }
 
     button {
