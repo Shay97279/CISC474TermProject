@@ -15,7 +15,7 @@ connection.once('open', () => {
 	console.log("MongoDB database connection established successfully");
 });
 app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname + "/index.html"));
+	res.sendFile(path.join(__dirname + "/Pages/assets.html"));
 	console.log("Express loads on main page!");
   });
 app.post('/user', async (req, res) => {
