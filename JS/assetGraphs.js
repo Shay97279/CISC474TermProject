@@ -254,9 +254,11 @@ function updateGraph() {
     d3.select("#EV svg").remove();
 
     // Call the functions to generate new graphs
-    barBreakdown();
-    pieBreakdown();
-    EVbyYear();
+    setTimeout(function() {
+        barBreakdown();
+        pieBreakdown();
+        EVbyYear();},
+        0)
 }
 
 pieBreakdown();
