@@ -36,7 +36,6 @@
     background: linear-gradient(454deg, rgb(0, 0, 192), yellow)
 }
 
-/*
 nav {
     padding: 15px;
     align-items: center;
@@ -49,9 +48,6 @@ nav {
     top: 0;
     width: 100%;
   }
-*/
-
-
   
 a {
     font-weight: 700;
@@ -113,10 +109,32 @@ body {
     color: rgb(34, 233, 140)
 }
 
+/* .container {
+    display: flex;
+    width: 100%;
+} */
+
 .content {
     flex: 1; /* Allow content to take up remaining space */
     padding: 20px;
     margin-top: -20px;
+}
+
+.sidebar {
+    background-color: #234E70;
+    color: #FBF8BE;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%; 
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+    margin-top: 40px;
+}
+
+/* Style for each form */
+form {
+    margin: 10px 0; /* Add spacing between forms */
 }
 
 label, input {
@@ -138,6 +156,11 @@ label, input {
         width: 20%;
         border-radius: 100%;
         margin-right: 80%;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
     }
 
     button {
