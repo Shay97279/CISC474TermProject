@@ -7,6 +7,7 @@ const port = 8080;
 const User = require('./models/user');
 const uri = process.env.MONGO_URL;
 app.use(express.json());
+app.use(express.static(__dirname));
 
 mongoose.connect(uri, {
 });
