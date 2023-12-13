@@ -18,7 +18,7 @@ $('#getbutton').click(function(){
             console.log("Filter Returned");
             localStorage.setItem('users', JSON.stringify(result));
             localStorage.setItem('assets', JSON.stringify(extractAssets(result, "Jonathon")));
-            localStorage.setItem('expenses', JSON.stringify(extractAssets(result, "Jonathon")));
+            localStorage.setItem('expenses', JSON.stringify(extractExpenses(result, "Jonathon")));
         }
     });
 })

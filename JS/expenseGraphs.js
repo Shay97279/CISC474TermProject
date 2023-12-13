@@ -17,6 +17,7 @@ function monthTrend() {
 
     // expenses = JSON.parse(mockData);
     expenses = JSON.parse(localStorage.getItem('expenses'));
+    console.log(expenses)
     //format: [{"date":"2023-11-30","category":"asdf","amount":"132"},{"date":"2023-11-17","category":"sdf","amount":"123"}]
     expenses.forEach(function(d) {d.date = new Date(d.date);});
 
@@ -25,7 +26,7 @@ function monthTrend() {
         const aggregatedExpenses = new Map();
         // Iterate through expenses
         expenses.forEach(function (d) {
-            // Extract year and month from the date
+            // Extract year and month from the date without modifying the original date
             const yearMonth = d3.timeFormat('%Y-%m')(d.date);
             // If the month is already in the Map, add the amount; otherwise, create a new entry
             if (aggregatedExpenses.has(yearMonth)) {
@@ -40,6 +41,7 @@ function monthTrend() {
         result.sort((a, b) => d3.ascending(a.month, b.month));
         return result;
     }
+    
     
     // Example usage:
     const monthExpense = GroupByMonth(expenses);
@@ -138,50 +140,7 @@ function monthTrend() {
         .attr("x", -height / 2)
         .style("text-anchor", "middle")
         .text("Expenses");
-    /*Fix the update later
-    window.updateGraph = function () {
-        console.log('being called');
-        expenses = JSON.parse(localStorage.getItem('expenses'));
-        //format: [{"date":"2023-11-30","category":"asdf","amount":"132"},{"date":"2023-11-17","category":"sdf","amount":"123"}]
-        expenses.forEach(function(d) {d.date = new Date(d.date);});
-        
-        // Example usage:
-        const monthExpense = GroupByMonth(expenses);
-        expenses = monthExpense;
-        console.log(monthExpense);
-        // Parse month values
-        monthExpense.forEach(function(d) {
-            date = new Date(d.month)
-            dayDelta = (date.getDate()-1)*-1; 
-            d.month = new Date(d.month + dayDelta);
-        });
-
-        const svg = d3.select("#trendline svg");
-        const duration = 1000;
-
-        xScale.domain(d3.extent(expenses, d => d.month));
-        yScale.domain(d3.extent(monthExpense, d => +d.amount));
-
-        // Update the x-axis scale with transition
-        svg.select(".x-axis")
-            .transition()
-            .duration(duration)
-            .call(d3.axisBottom(xScale)
-                .tickFormat(d3.timeFormat("%b %Y"))
-                .tickValues(monthExpense.map(d => d.month)));
-
-        // Update the y-axis scale with transition
-        svg.select(".y-axis")
-            .transition()
-            .duration(duration)
-            .call(d3.axisLeft(yScale));
-
-        svg.select(".line")
-            .datum(expenses)
-            .transition()
-            .duration(duration)
-            .attr("d", savingsLine);
-    };*/
+   
 }
 
 function typePie() {
@@ -329,6 +288,24 @@ function typeBar() {
         .style("text-anchor", "middle")
         .text("Total Amount");
 }
+
+function updateGraph() {
+    console.log('updating graphs');
+    
+    // Clear existing SVG elements
+    d3.select("#barchart svg").remove();
+    d3.select("#piechart svg").remove();
+    d3.select("#trendline svg").remove();
+
+    // Call the functions to generate new graphs after removing existing SVG elements
+    setTimeout(function () {
+        monthTrend();
+        typePie();
+        typeBar();
+    }, 0);
+}
+
+
 
 monthTrend();
 typePie();
