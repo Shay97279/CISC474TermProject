@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Expenses</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="../Assets/header.js" type="text/javascript" defer></script>
-    <!-- <script src="../Assets/sidebar.js" type="text/javascript" defer></script> -->
-    <!-- <link href="../CSS/index.css" rel="stylesheet"/> -->
-    <link href="../CSS/index.css" rel="stylesheet" type="text/css" />
-    <script src="../Assets/header.js" type="text/javascript" defer></script>
-    <script src="../Assets/sidebar.js" type="text/javascript" defer></script>
+	<!-- <script src="../Assets/sidebar.js" type="text/javascript" defer></script> -->
+	<!-- <link href="../CSS/index.css" rel="stylesheet"/> -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<link href="../CSS/index.css" rel="stylesheet" type="text/css" />
+	<script src="../Assets/header.js" type="text/javascript" defer></script>
+</head>
 
-  </head>
-<body onload="showExpenses()">
+<body>
 	<div class="container">
-        <div><header-component></header-component></div>
-        <div><sidebar-component></sidebar-component></div>
+		<div><header-component></header-component></div>
+		<div><sidebar-component></sidebar-component></div>
 		<div class="row">
 			<div class="col-md-8 mx-auto">
 				<h1>Expense Tracker</h1>
-				<form onsubmit="return addExpense()">
+				<form>
 					<input type="hidden" id="editIndex">
 					<div class="form-group">
 						<label for="date">Date:</label>
@@ -34,7 +34,7 @@
 						<label for="amount">Amount:</label>
 						<input type="number" id="amount" class="form-control" required>
 					</div>
-					<button type="submit" id="addButton" class="btn btn-primary">Add Expense</button>
+					<button type="button" id="addButton" class="btn btn-primary">Add Expense</button>
 				</form>
 				<br>
 				<table class="table table-striped table-bordered" id="expenseTable">
@@ -51,6 +51,25 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$('#addButton').click(function () {
+			$.ajax({
+				url: '/api/v1/expenses?email=' + document.getElementById("category").value,
+				type: 'GET',
+				body: JSON.stringify({
+					"date": document.getElementById("date").value,
+					"email": document.getElementById("category").value,
+					"amount": document.getElementById("amount").value
+				}),
+				success: function (result) {
+					console.log("Filter Returned");
+					console.log(result);
+				},
+				error: function (error) {
+					console.log(error);
+				}
+			});
+		})
+	</script>
 
-    <script src="../JS/expenses.js">
-    </script>
+	</script>

@@ -15,7 +15,7 @@ connection.once('open', () => {
 	console.log("MongoDB database connection established successfully");
 });
 app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname + "/index.html"));
+	res.sendFile(path.join(__dirname + "/Pages/expenses.html"));
 	console.log("Express loads on main page!");
   });
 app.post('/user', async (req, res) => {
@@ -59,8 +59,9 @@ app.delete('/api/v1/expenses', async (req, res) => {
 	}
 });
 app.get('/api/v1/expenses', async (req, res) => {
+	console.log(req.query.email);
 	try {
-		const users = await connection.collection('users').findOne({ "email": req.body.email });
+		const users = await connection.collection('users').findOne({ "email": req.query.email });
 		res.send(users.expenses);
 	}
 	catch (err) {
