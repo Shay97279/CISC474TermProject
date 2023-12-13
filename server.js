@@ -64,11 +64,11 @@ app.get('api/v1/login', function(req, res) {
 	const email = req.query.email;
 	const password = req.query.password;
 	let idstr = null;
-	client.db("cluster0").collection("users").findOne( {"email": email}, { "password": 1} ).then(function(pass) {
+	client.db("Cluster474").collection("users").findOne( {"email": email}, { "password": 1} ).then(function(pass) {
 		console.log(pass.password);
 		if(password == pass.password) {
 			console.log("inside if");
-			client.db("cluster0").collection("users").findOne( {"email": email}, { _id: 1}).then(function(id) {
+			client.db("Cluster474").collection("users").findOne( {"email": email}, { _id: 1}).then(function(id) {
 				let idval = id._id;
 				idstr = idval.toString();
 				console.log(idstr);
