@@ -6,6 +6,7 @@ MONGO_URL="mongodb+srv://khammen:khammen@cluster474.ogg29o3.mongodb.net/474"
     - On that note, the file getfromDB.js would use the user's ID after login to get their information. For now it just always pulls user Jonathon
     - I believe Daniel has working login on the branch login-theme, though I have not confirmed that myself. 
 - After creating the .env, you may need some npm installs. [dotenv, d3, bootstrap, mongodb] are the key ones, I believe. 
+- run 'node server.js' to start it up
 
 
 General Notes:
