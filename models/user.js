@@ -24,7 +24,7 @@ const userSchema = new Schema({
     budget: [{
         name: String,
         amount: Number,
-        category: String,
+        savings: Number,
         date: {type: Date, default: Date.now} }]
 });
 

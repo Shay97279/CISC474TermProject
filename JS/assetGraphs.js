@@ -4,8 +4,7 @@ function barBreakdown () {
         {"name":"stock1","category":"investment","amount":"132"},{"name":"stock2","category":"investment","amount":"123"},
         {"name":"car","category":"thing","amount":"45"}])
     // Assuming assets is already loaded from local storage or another source
-    const assets = JSON.parse(mockData)
-    //const assets = JSON.parse(localStorage.getItem('assets'));
+    const assets = JSON.parse(localStorage.getItem('assets'));
     const margin = { top: 20, right: 20, bottom: 50, left: 40 };
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -81,9 +80,8 @@ function pieBreakdown() {
         {"name":"car","category":"thing","amount":"45"}])
     
     // Assuming assets is already loaded from local storage or another source
-    const assets = JSON.parse(mockData)
-    //const assets = JSON.parse(localStorage.getItem('assets'));
-
+    const assets = JSON.parse(localStorage.getItem('assets'));
+    console.log(assets);
     const width = 400;
     const height = 400;
     const radius = Math.min(width, height) / 2;
@@ -159,9 +157,10 @@ function EVbyYear() {
         {"name":"car","category":"thing","amount":"45","growthRate":0.02}]);
 
     const years = 5;
-
-    const assets = JSON.parse(mockData);
-
+  
+    var assets = JSON.parse(localStorage.getItem('assets'));
+    assets = assets.map(asset => ({...asset, growthRate: .1}));
+    
     const margin = { top: 20, right: 20, bottom: 50, left: 40 };
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -245,6 +244,21 @@ function EVbyYear() {
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Amount");
+}
+
+function updateGraph() {
+    console.log('updating graphs');
+    // Clear existing SVG elements
+    d3.select("#barchart svg").remove();
+    d3.select("#piechart svg").remove();
+    d3.select("#EV svg").remove();
+
+    // Call the functions to generate new graphs
+    setTimeout(function() {
+        barBreakdown();
+        pieBreakdown();
+        EVbyYear();},
+        0)
 }
 
 pieBreakdown();
