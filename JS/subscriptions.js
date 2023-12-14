@@ -1,21 +1,21 @@
 
-// add expense to table and local storage
-function addExpense() {
+// add subscription to table and local storage
+function addSubscription() {
     var date = document.getElementById('date').value;
     var category = document.getElementById('category').value;
     var amount = document.getElementById('amount').value;
     var editIndex = document.getElementById('editIndex').value;
 
     if (editIndex === '') {
-        var expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        expenses.push({date: date, category: category, amount: amount});
-        localStorage.setItem('expenses', JSON.stringify(expenses));
-        var tableBody = document.getElementById('expenseTable').getElementsByTagName('tbody')[0];
-        var row = '<tr><td>' + date + '</td><td>' + category + '</td><td>' + amount + '</td><td><button type="button" class="btn btn-sm btn-primary" onclick="editForm(this.parentNode.parentNode)">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="deleteExpense(this.parentNode.parentNode)">Delete</button></td></tr>';
+        var subscriptions = JSON.parse(localStorage.getItem('subscriptions')) || [];
+        subscriptions.push({date: date, category: category, amount: amount});
+        localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
+        var tableBody = document.getElementById('subscriptionTable').getElementsByTagName('tbody')[0];
+        var row = '<tr><td>' + date + '</td><td>' + category + '</td><td>' + amount + '</td><td><button type="button" class="btn btn-sm btn-primary" onclick="editForm(this.parentNode.parentNode)">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="deleteSubscription(this.parentNode.parentNode)">Delete</button></td></tr>';
         tableBody.insertAdjacentHTML('beforeend', row);
-        console.log("LOCAL STRG", localStorage.getItem('expenses'))
+        console.log("LOCAL STRG", localStorage.getItem('subscriptions'))
     } else {
-        editExpense(editIndex, date, category, amount);
+        editSubscription(editIndex, date, category, amount);
     }
 
     resetForm();
@@ -28,51 +28,51 @@ function resetForm() {
     document.getElementById('category').value = '';
     document.getElementById('amount').value = '';
     document.getElementById('editIndex').value = '';
-    document.getElementById('addButton').innerHTML = 'Add Expense';
+    document.getElementById('addButton').innerHTML = 'Add Subscription';
 }
 
-// delete expense from table and local storage
-function deleteExpense(row) {
+// delete subscription from table and local storage
+function deleteSubscription(row) {
     row.parentNode.removeChild(row);
-    var expenses = JSON.parse(localStorage.getItem('expenses'))
+    var subscriptions = JSON.parse(localStorage.getItem('subscriptions'))
 var rowIndex = row.rowIndex - 1;
-expenses.splice(rowIndex, 1);
-localStorage.setItem('expenses', JSON.stringify(expenses));
+subscriptions.splice(rowIndex, 1);
+localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
 }
 
-// edit expense in form
+// edit subscription in form
 function editForm(row) {
 var rowIndex = row.rowIndex - 1;
-var expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-var expense = expenses[rowIndex];
-document.getElementById('date').value = expense.date;
-document.getElementById('category').value = expense.category;
-document.getElementById('amount').value = expense.amount;
+var subscriptions = JSON.parse(localStorage.getItem('subscriptions')) || [];
+var subscription = subscriptions[rowIndex];
+document.getElementById('date').value = subscription.date;
+document.getElementById('category').value = subscription.category;
+document.getElementById('amount').value = subscription.amount;
 document.getElementById('editIndex').value = rowIndex;
-document.getElementById('addButton').innerHTML = 'Update Expense';
+document.getElementById('addButton').innerHTML = 'Update Subscription';
 }
 
-// edit expense in table and local storage
-function editExpense(index, date, category, amount) {
-var expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-expenses[index] = {date: date, category: category, amount: amount};
-localStorage.setItem('expenses', JSON.stringify(expenses));
-var tableRow = document.getElementById('expenseTable').rows[index+1];
+// edit subscription in table and local storage
+function editSubscription(index, date, category, amount) {
+var subscriptions = JSON.parse(localStorage.getItem('subscriptions')) || [];
+subscriptions[index] = {date: date, category: category, amount: amount};
+localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
+var tableRow = document.getElementById('subscriptionTable').rows[index+1];
 tableRow.cells[0].innerHTML = date;
 tableRow.cells[1].innerHTML = category;
 tableRow.cells[2].innerHTML = amount;
 resetForm();
 }
 
-// show expenses in table
+// show subscriptions in table
 function showSubscriptions() {
-var expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-console.log("this is the curr ex", expenses);
-var tableBody = document.getElementById('expenseTable').getElementsByTagName('tbody')[0];
-for (var i = 0; i < expenses.length; i++) {
-    var expense = expenses[i];
-    var row = '<tr><td>' + expense.date + '</td><td>' + expense.category + '</td><td>' + expense.amount + '</td><td><button type="button" class="btn btn-sm btn-primary" onclick="editForm(this.parentNode.parentNode)">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="deleteExpense(this.parentNode.parentNode)">Delete</button></td></tr>';
+var subscriptions = JSON.parse(localStorage.getItem('subscriptions')) || [];
+console.log("this is the curr ex", subscriptions);
+var tableBody = document.getElementById('subscriptionTable').getElementsByTagName('tbody')[0];
+for (var i = 0; i < subscriptions.length; i++) {
+    var subscription = subscriptions[i];
+    var row = '<tr><td>' + subscription.date + '</td><td>' + subscription.category + '</td><td>' + subscription.amount + '</td><td><button type="button" class="btn btn-sm btn-primary" onclick="editForm(this.parentNode.parentNode)">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="deleteSubscription(this.parentNode.parentNode)">Delete</button></td></tr>';
     tableBody.insertAdjacentHTML('beforeend', row);
-    console.log( "HEY", expense.date, expense.category, expense.amount)
+    console.log( "HEY", subscription.date, subscription.category, subscription.amount)
 }
 }
