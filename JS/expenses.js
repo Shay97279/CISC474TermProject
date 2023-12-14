@@ -77,3 +77,4 @@ for (var i = 0; i < expenses.length; i++) {
     console.log( "HEY", expense.date, expense.category, expense.amount)
 }
 }
+
