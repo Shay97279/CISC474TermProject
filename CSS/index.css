@@ -1,14 +1,20 @@
 nav {
-    padding: 15px;
-    align-items: center;
+    background-color: #234e70;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
     display: flex;
-    justify-content: space-between;
-    margin: 0;
-    background-color:  #234E70;
-    z-index: 100; /*keeps it in front of other things as you scroll*/
-    position: fixed; 
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+    position: fixed;
+    overflow-y: hidden;
+    border-radius: .5%;
+    z-index:1; 
+    
+  }
+  .main {
+    margin-top: 30px; /* Add a top margin to avoid content overlay */
   }
   
   a {
@@ -16,7 +22,10 @@ nav {
     margin: 0 25px;
     color: #FBF8BE;
     text-decoration: none;
+    padding : 0 50px 0 50px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   }
+
   
   a:hover {
     padding-bottom: 5px;
@@ -27,8 +36,10 @@ nav {
 }
 
 body {
-
-    background-color: #FBF8BE;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 
 body {

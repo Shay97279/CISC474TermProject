@@ -11,12 +11,14 @@
     <!-- <link href="../CSS/index.css" rel="stylesheet"/> -->
     <link href="../CSS/index.css" rel="stylesheet" type="text/css" />
     <script src="../Assets/header.js" type="text/javascript" defer></script>
-    <script src="../Assets/sidebar.js" type="text/javascript" defer></script>
-  </head>
+    <!-- <script src="../Assets/sidebar.js" type="text/javascript" defer></script> -->
+	<link href="../CSS/expensePlanning.css" rel="stylesheet" type="text/css" />
+</head>
 <body onload="showExpenses()">
 	<div class="container">
         <div><header-component></header-component></div>
         <div><sidebar-component></sidebar-component></div>
+		<div class="trackclass">
 		<div class="row">
 			<div class="col-md-8 mx-auto">
 				<h1>Expense Tracker</h1>
@@ -50,10 +52,25 @@
 				</table>
 			</div>
 		</div>
-        <div id="trendline"></div>
-        <div id="barchart"></div>
-        <div id="piechart"></div>
 	</div>
+
+
+
+	<div class="trendGraph">
+		
+        <div id="trendline"></div>
+	</div>
+
+	<div class="barGraph">
+
+        <div id="barchart"></div>
+
+		<div class="pieGraph">
+	</div>
+        <div id="piechart"></div> 
+	</div>
+
+</div>
 
     <script src="../JS/expenses.js"></script>
     <script src="../JS/expenseGraphs.js"></script>
