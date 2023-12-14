@@ -7,6 +7,7 @@ const port = 8080;
 const User = require('./models/user');
 const uri = process.env.MONGO_URL;
 app.use(express.json());
+app.use(express.static(__dirname));
 
 mongoose.connect(uri, {
 });
@@ -15,7 +16,7 @@ connection.once('open', () => {
 	console.log("MongoDB database connection established successfully");
 });
 app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname + "/index.html"));
+	res.sendFile(path.join(__dirname + "/Pages/assets.html"));
 	console.log("Express loads on main page!");
   });
 app.post('/user', async (req, res) => {
@@ -201,7 +202,7 @@ app.get('/api/v1/login', async (req, res) => {
 	}
 });
 
-app.get('/user', async (req, res) => {
+app.get('/allUsers', async (req, res) => {
 	try {
 		const users = await User.find();
 		res.send(users);
@@ -209,6 +210,15 @@ app.get('/user', async (req, res) => {
 	catch (err) {
 		console.log("error" + err);
 	}
+});
+app.get('/user', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.send(users);
+    }
+    catch (err) {
+        console.log("error" + err);
+    }
 });
 
 app.listen(port, () => {
