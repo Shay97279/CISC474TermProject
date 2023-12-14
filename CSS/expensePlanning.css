@@ -23,6 +23,21 @@
     animation: 1s ease-out 0s 1 slideInLeft;
   }
 
+  .form-group{
+    background-color: blueviolet;
+  }
+
+  .yolo{
+    background-color: blue;
+    margin-top: 20%;
+  }
+
+.formbody{
+  background-color: aquamarine;
+  margin-left: -20%;
+}
+
+
   img.trend{
     width: 90%;
     height: 110vh;
