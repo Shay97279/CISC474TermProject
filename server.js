@@ -32,35 +32,35 @@ const client = new MongoClient(uri, {
   }
 });
 
-// mongoose.connect(uri, {
-// });
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-// 	console.log("MongoDB database connection established successfully");
-// });
-// app.get("/", (req, res) => {
-// 	res.sendFile(path.join(__dirname + "/index.html"));
-// 	console.log("Express loads on main page!");
-//   });
+mongoose.connect(uri, {
+});
+const connection = mongoose.connection;
+connection.once('open', () => {
+	console.log("MongoDB database connection established successfully");
+});
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname + "/index.html"));
+	console.log("Express loads on main page!");
+  });
 
-// app.post('/user', async (req, res) => {
-// 	try {
-// 		console.log(req.body);
-// 		const newUser = new User({
-// 			firstName: req.body.firstName,
-// 			lastName: req.body.lastName,
-// 			email: req.body.email,
-// 			expenses: req.body.expenses,
-// 			income: req.body.income,
-// 			budget: req.body.budget
-// 		});
-// 		await User.create(newUser);
-// 		res.send("User created");
-// 	}
-// 	catch (err) {
-// 		console.log("error" + err);
-// 	}
-// });
+app.post('/user', async (req, res) => {
+	try {
+		console.log(req.body);
+		const newUser = new User({
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			expenses: req.body.expenses,
+			income: req.body.income,
+			budget: req.body.budget
+		});
+		await User.create(newUser);
+		res.send("User created");
+	}
+	catch (err) {
+		console.log("error" + err);
+	}
+});
 
 async function run() {
 	try {
@@ -85,7 +85,7 @@ async function run() {
 	});
 	
 	async function addUser(client, user) {
-		const result = await client.db("cluster474").collection("users").insertOne(user);
+		const result = await connection.collection("users").insertOne(user);
 		console.log(`New user created with the following id: ${result.insertedId}`);
 		return result.insertedId;
 	}
@@ -96,11 +96,11 @@ async function run() {
 		const email = req.query.email;
 		const password = req.query.password;
 		let idstr = null;
-		client.db("cluster474").collection("users").findOne( {"email": email}, { "password": 1} ).then(function(pass) {
+		connection.collection("users").findOne( {"email": email}, { "password": 1} ).then(function(pass) {
 			console.log(pass.password);
-			if(password == pass.password) {
+			if(pass && password == pass.password) {
 				console.log("inside if");
-				client.db("cluster474").collection("users").findOne( {"email": email}, { _id: 1}).then(function(id) {
+				connection.collection("users").findOne( {"email": email}, { _id: 1}).then(function(id) {
 					let idval = id._id;
 					idstr = idval.toString();
 					console.log(idstr);
@@ -273,15 +273,15 @@ async function run() {
 			console.log("error" + err);
 		}
 	});
-	app.get('/api/v1/login', async (req, res) => {
-		try {
-			const users = await connection.collection('users').findOne({ "email": req.body.email , "password": req.body.password});
-			res.send(users._id);
-		}
-		catch (err) {
-			console.log("error" + err);
-		}
-	});
+	// app.get('/api/v1/login', async (req, res) => {
+	// 	try {
+	// 		const users = await connection.collection('users').findOne({ "email": req.body.email , "password": req.body.password});
+	// 		res.send(users._id);
+	// 	}
+	// 	catch (err) {
+	// 		console.log("error" + err);
+	// 	}
+	// });
 	
 	app.get('/user', async (req, res) => {
 		try {
@@ -293,7 +293,7 @@ async function run() {
 		}
 	});
 	} finally {
-		console.log("hit close");
+		console.log("");
 }
 }
 run().catch(console.dir);
