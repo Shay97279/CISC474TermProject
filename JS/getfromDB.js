@@ -14,7 +14,6 @@ function extractSubscriptions(userdata, user){
     return subs;
 }
 
-
 $('#getbutton').click(function(){
     $.ajax({
         url: '/user',
