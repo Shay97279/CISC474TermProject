@@ -212,14 +212,13 @@ app.get('/allUsers', async (req, res) => {
 	}
 });
 app.get('/user', async (req, res) => {
-	try {
-		const users = await User.findById(req.query.id);
-		console.log(users);
-		res.send(users);
-	}
-	catch (err) {
-		console.log("error" + err);
-	}
+    try {
+        const users = await User.find();
+        res.send(users);
+    }
+    catch (err) {
+        console.log("error" + err);
+    }
 });
 
 app.listen(port, () => {
