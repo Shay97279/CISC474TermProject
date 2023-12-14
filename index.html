@@ -8,50 +8,87 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="./CSS/index.css" rel="stylesheet" type="text/css" />
-    <script src="../Assets/indexnav.js" type="text/javascript" defer></script>
-    <script src="../Assets/sidebar.js" type="text/javascript" defer></script>
+    <!-- <script src="./Assets/index.js" type="text/javascript" defer></script> -->
     <title>Finance Freaks</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+    <script defer src="/models/scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
     <body>
-        <div class="container">
-            <div><header-component></header-component></div>
-            <div class="content"></div>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <img class="logo" src="/Images/logo.png" alt="logo" class="d-inline-block align-text-top">
+            <h1 class="title">Finance Freaks</h1>
+          
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-xl-0">
+            <div>
+                <button type="button" class="btn btn-primary btn-lg login-button" data-toggle="modal" data-target="#loginModal">
+                    Login
+                  </button>
+            </div>
+          </form>
         </div>
-        
-        <div>
-            <h1 style="text-align: center; color: navy;">Finance Freaks</h1>
+      </nav>
+
+      <!---Sign up--->
+  <div class="mainslide">
+    <div style="position: absolute; top: 18%" class="container col">
+      <div>
+        <h1>Let's get started</h1>
+      </div>
+      <form>
+        <div class="form-group row">
+          <div class="col-sm-2">
+            <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Legal first name">
+          </div>
+          <div class="col-sm-2">
+            <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Legal last name">
+          </div>
         </div>
-
-    <form class="login-form">
-
-        <h2>New User?</h2>
-
-        <div class="imgcontainer">
-            <img src="./Images/avatar.jpg" alt="Avatar" class="avatar">
+        <div class="form-group row">
+          <div class="col-sm-4">
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+          </div>
         </div>
-
-        <div class="logincontainer">
-
-            <label for="uname"><b>Username</b></label><br>
-            <input type="text" placeholder="Enter Username" name="uname" required><br>
-
-            <label for="email"><b>Email</b></label><br>
-            <input type="text" placeholder="Enter Email" name="email" required><br>
-
-            <label for="psw"><b>Password</b></label><br>
-            <input type="password" placeholder="Enter Password" name="psw" required><br>
-
-            <button type="submit" class="loginbutton">Login</button>
-
+        <div class="form-group row">
+          <div class="col-sm-4">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+          </div>
         </div>
+      </form>
+      <button class="btn btn-primary" onclick="signup()">Next</button>
+    </div>
+  </div>
 
-    </form>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Login Modal ------>
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="loginModalLabel">Login</h5>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </form>
+          <button onclick="loginUser()" class="btn btn-primary">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
     </body>
 
 <html>

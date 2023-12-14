@@ -1,3 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.title{
+    color: white;
+    font-family: monospace;
+    position: relative;
+    left: -1%;
+}
+
+.logo {
+    width: 8%;
+}
+
+.mainslide {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color: #fff;
+    background: linear-gradient(454deg, rgb(0, 0, 192), yellow)
+}
+
+.slides {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color: #fff;
+    background: linear-gradient(454deg, rgb(0, 0, 192), yellow)
+}
+
 nav {
     padding: 15px;
     width: 100vw;
@@ -6,31 +45,23 @@ nav {
     justify-content: space-between;
  margin-left: -15%;
     background-color:  #234E70;
-    z-index: 100; /*keeps it in front of other things as you scroll*/
+    z-index: 100;
     position: fixed; 
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+    top: 0;
+    width: 100%;
   }
   
-  a {
+a {
     font-weight: 700;
     margin: 0 25px;
     color: #FBF8BE;
     text-decoration: none;
   }
   
-  a:hover {
+a:hover {
     padding-bottom: 5px;
     box-shadow: inset 0 -2px 0 0 #dbd6d6;
   }
-  img {
-    height:300px;
-}
-
-body {
-
-    background-color: #FBF8BE;
-}
 
 body {
     margin:0;
@@ -80,15 +111,15 @@ body {
     color: rgb(34, 233, 140)
 }
 
-.container {
+/* .container {
     display: flex;
     width: 100%;
-}
+} */
 
 .content {
     flex: 1; /* Allow content to take up remaining space */
     padding: 20px;
-    margin-top: 40px;
+    margin-top: -20px;
 }
 
 .sidebar {
@@ -133,6 +164,11 @@ label, input {
     .imgcontainer {
         text-align: center;
         margin: 24px 0 12px 0;
+    }
+
+    .login-button {
+        position:relative;
+        right: 100%;
     }
 
     .loginbutton {
