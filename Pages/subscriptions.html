@@ -9,15 +9,20 @@
 	<link href="../CSS/index.css" rel="stylesheet" type="text/css" />
   <link href="../CSS/subscriptions.css" rel="stylesheet" type="text/css" />
     <script src="../Assets/header.js" type="text/javascript" defer></script>
-    <script src="../Assets/sidebar.js" type="text/javascript" defer></script>
+    <!-- <script src="../Assets/sidebar.js" type="text/javascript" defer></script> -->
     <script type="module" src="../Assets/addSubscription.js"></script>
   </head>
   <body onload="showSubscriptions()">
     <div class="container">
           <div><header-component></header-component></div>
           <div><sidebar-component></sidebar-component></div>
+          <div class="trackclass1">
       <div class="row">
+        <br>
         <div class="col-md-8 mx-auto">
+          <br>
+          <br>
+          <br>
           <h1>Subscription Tracker</h1>
           <form onsubmit="return addSubscription()">
             <input type="hidden" id="editIndex">
@@ -49,6 +54,7 @@
           </table>
         </div>
       </div>
+    </div>
     </div>
   </body>
   <script src="../JS/subscriptions.js">
